@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from .models import Question, Choice
+from .forms import BasicForm
 
 # Create your views here.
 class IndexView(generic.ListView):
@@ -42,3 +43,15 @@ def vote(request, question_id):
         # Always return HttpResponseRedirect after successfull POST data. 
         # This prevents data from being posted twice if user hits the back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+def basic_form(request):
+    
+    if request.method == 'POST':
+        form = BasicForm(request.POST)
+        if form.is_valid():
+            return render(request, 'polls/basic_form.html', {"form": form, "lat": form.cleaned_data["latitude"], "lng": form.cleaned_data["longitude"]})
+    else:
+        form = BasicForm()
+    
+    return render(request, 'polls/basic_form.html', {"form": form})

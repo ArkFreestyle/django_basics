@@ -1,0 +1,13 @@
+<h1>I AM A BASIC FORM!!!</h1>
+<h2>Enter at your own risk</h2>
+
+<form action="/basic_form/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="submit">
+</form>
+
+{% if lat != None %}
+<h3>Ayyyy latitude: {{ lat }}</h3>
+<h3>Ayyyy longitude: {{ lng }}</h3>
+{% endif %}

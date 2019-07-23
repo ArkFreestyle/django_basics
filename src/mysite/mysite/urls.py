@@ -20,4 +20,5 @@ from polls import views
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('basic_form/', views.basic_form, name="basic_form"),
 ]
