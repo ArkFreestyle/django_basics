@@ -55,3 +55,23 @@ def basic_form(request):
         form = BasicForm()
     
     return render(request, 'polls/basic_form.html', {"form": form})
+
+
+def basic_form2(request):
+    
+    print("\n------------------------------------------------------------------")
+    print("request:", request)
+    print("\nrequest.POST:", request.POST)
+    print("\nrequest.body:", request.body)
+    print("\nrequest.POST.keys()", request.POST.keys())
+    print("\nrequest.POST.items()", request.POST.items())
+    print("------------------------------------------------------------------")
+    form = 0
+    return render(request, 'polls/basic_form2.html', {"form": form})
+
+
+def basic_form3(request):
+
+    print("\nrequest.POST:", request.POST)
+
+    return render(request, "polls/basic_form3.html")

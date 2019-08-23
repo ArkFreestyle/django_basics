@@ -21,4 +21,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('basic_form/', views.basic_form, name="basic_form"),
+    path('basic_form2/', views.basic_form2, name="basic_form2"),
+    path('basic_form3/', views.basic_form3, name="basic_form3"),
 ]

@@ -1,0 +1,30 @@
+<h1>I AM BASIC FORM NUMBER 2 BEHOLD MY GLORY!</h1>
+
+<h2>You will be shown the basic form elements, BURN THEM INTO YOUR EYES!</h2>
+
+<form action="/basic_form2/">
+    <h3>
+        TEXT!
+        <input type="text">
+    </h3>
+    <h3>
+        RADIO!
+        <input type="radio">
+    </h3>
+    <h3>
+        SUBMIT!
+        <input type="submit">
+    </h3>
+    
+</form>
+
+<h2>NOW PREPARE YOURSELF TO INPUT SOME NAMES. DO NOT STUTTER!</h2>
+
+<form action="/basic_form2/" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="Name your kitty!?" name="kitty_name1"><br>
+    <input type="text" placeholder="Name your kitty!?" name="kitty_name2"><br>
+    <input type="text" placeholder="Name your kitty!?" name="kitty_name3"><br>
+    <input type="text" placeholder="Name your kitty!?" name="kitty_name4"><br>
+    <input type="text" placeholder="Name your kitty!?" name="kitty_name5"><input type="submit"><br>
+</form>

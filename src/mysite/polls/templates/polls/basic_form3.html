@@ -1,0 +1,144 @@
+<h1>1) Alright, basic form 3. Let's make a dynamic HTML form!</h1>
+
+<form id="latlngform" action="/basic_form3/" method="POST">
+    {% csrf_token %}
+    <input name="lat1" type="text" placeholder="latitude">
+    <input name="lng1" type="text" placeholder="longitude"><input type="submit"><br>
+
+    <!-- <div id="container"> -->
+    <input name="lat2" type="text" placeholder="latitude">
+    <input name="lng2" type="text" placeholder="longitude">
+    <button id="add_vertex_btn" type="button" onclick="add_vertex(this);">Add vertex</button>
+    <button type="button" onclick="remove_vertex(this)">Remove vertex</button>
+    <!-- </div> -->
+</form>
+
+<script>
+    function add_vertex(obj)
+    {
+        // Specify where to add new elements
+        add_vertex_btn = document.getElementById("add_vertex_btn");
+
+
+        // Add linebreak
+        // br = document.createElement("br");
+        // br.id = "add_vertex_br";
+        // container = document.getElementById("container");
+        // container.appendChild(br);
+        // container.insertBefore(br, add_vertex_btn);
+
+        // Add vertex
+        var child = document.createElement("input");
+        child.id = "lat3";
+        child.name = "lat3";
+        child.placeholder = "latitude";
+        child.type = "text";
+        // obj.parentNode.appendChild(child);
+        obj.parentNode.insertBefore(child, add_vertex_btn);
+
+        var child = document.createElement("input");
+        child.id = "lng3";
+        child.name = "lng3";
+        child.placeholder = "longitude";
+        child.type = "text";
+        // obj.parentNode.appendChild(child);
+        obj.parentNode.insertBefore(child, add_vertex_btn);
+        
+    }
+
+    function remove_vertex(obj)
+    {
+        // Remove the linebreak added by the add_vertex function
+        // br = document.getElementById("add_vertex_br")
+        // br.parentNode.removeChild(br);
+
+        // Remove the vertex from the form
+        child = document.getElementById("lat3");
+        child.parentNode.removeChild(child);
+
+        child = document.getElementById("lng3");
+        child.parentNode.removeChild(child);
+    }
+</script>
+
+
+
+
+<h1>2) Trying out HTML DOM methods.</h1>
+<h2 id="test">Watch me change</h2>
+<script>
+    document.getElementById("test").innerHTML = "I was changed by Javascript!"
+</script>
+
+<h1>3) Date written by Javascript:</h1>
+<script>
+    document.write(Date());
+</script>
+
+<h1 id="clickey">4) HTML DOM click event:</h1>
+<button type="button" onclick="document.getElementById('clickey').style.color = 'red'">
+Click me to change the above heading to RED!
+</button>
+
+<h1 onclick="this.innerHTML='Wooooo'">5) Change elements onclick:</h1>
+<h2 onclick="changeText(this)">Click on this text</h2>
+<script>
+    function changeText(obj)
+    {
+        obj.innerHTML = "EEEEEEEEEE";
+    }
+</script>
+<button onclick="displayDate()">Display Date (Don't click me)</button>
+<script>
+    function displayDate()
+    {
+        document.write(Date());
+    }
+</script>
+
+<button id="mybtn">Try me (Don't click me)</button>
+<script>
+document.getElementById("mybtn").onclick = displayDate;
+</script>
+
+<h1 onmouseover="movey(this)" onmouseout="exmovey(this)">6) Mouse over me event</h1>
+<script>
+    function movey(obj)
+    {
+        obj.innerHTML = "Ayyy lmao";
+    }
+    function exmovey(obj)
+    {
+        obj.innerHTML = "6) Mouse over me event"
+    }
+</script>
+
+<h1 id="eventlistenerz">7) Trying event listeners for clicks:</h1>
+<script>
+    document.getElementById("eventlistenerz").addEventListener("click", event_listener);
+    function event_listener()
+    {
+        alert("It works, asshole.");
+    }
+</script>
+
+<h1>8) Finally, creating new HTML elements (Nodes):</h1>
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+<script>
+    var para = document.createElement("p");
+    var node = document.createTextNode("This is a new paragraph created by Javascript!")
+    para.appendChild(node);
+
+    var element = document.getElementById("div1");
+    element.appendChild(para);
+</script>
+
+<h1>9) Removing existing HTML elements</h1>
+<script>
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    parent.removeChild(child);
+</script>
